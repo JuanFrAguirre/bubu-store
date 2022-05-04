@@ -12,6 +12,10 @@ router.get("/productos", (req, res) => {
 
 router.get("/productos/:id", (req, res) => {
 	let productId = req.params.id;
+	// if (String(Number(productId)) === 'NaN' ) {
+	if (isNaN(Number(productId))) {
+		res.render('404')
+	}
 
 	res.render("producto", {
 		nombre: "Virginia",
